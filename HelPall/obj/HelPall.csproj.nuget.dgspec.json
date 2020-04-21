@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Berk/Projects/HelPall/HelPall/HelPall.csproj": {}
+    "/Users/Berk/Projects/Helpall/HelPall/HelPall.csproj": {}
   },
   "projects": {
-    "/Users/Berk/Projects/HelPall/HelPall/HelPall.csproj": {
+    "/Users/Berk/Projects/Helpall/HelPall/HelPall.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Berk/Projects/HelPall/HelPall/HelPall.csproj",
+        "projectUniqueName": "/Users/Berk/Projects/Helpall/HelPall/HelPall.csproj",
         "projectName": "HelPall",
-        "projectPath": "/Users/Berk/Projects/HelPall/HelPall/HelPall.csproj",
+        "projectPath": "/Users/Berk/Projects/Helpall/HelPall/HelPall.csproj",
         "packagesPath": "/Users/Berk/.nuget/packages/",
-        "outputPath": "/Users/Berk/Projects/HelPall/HelPall/obj/",
+        "outputPath": "/Users/Berk/Projects/Helpall/HelPall/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -50,6 +50,26 @@
             "MongoDB.Driver.Core": {
               "target": "Package",
               "version": "[2.10.3, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "Serilog.Enrichers.Environment": {
+              "target": "Package",
+              "version": "[2.1.3, )"
+            },
+            "Serilog.Exceptions": {
+              "target": "Package",
+              "version": "[5.4.0, )"
+            },
+            "Serilog.Sinks.Debug": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
+            "Serilog.Sinks.ElasticSearch": {
+              "target": "Package",
+              "version": "[8.0.1, )"
             },
             "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",

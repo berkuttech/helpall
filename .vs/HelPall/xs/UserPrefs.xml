@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{D2085A96-5BBE-42E7-9040-5F31BCA73383}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HelPall/Program.cs">
+    <Files>
+      <File FileName="HelPall/Controllers/WeatherForecastController.cs" Line="1" Column="1" />
+      <File FileName="HelPall/WeatherForecast.cs" />
+      <File FileName="HelPall/Startup.cs" Line="88" Column="39" />
+      <File FileName="HelPall/appsettings.Development.json" />
+      <File FileName="HelPall/Services/PersonService.cs" Line="19" Column="10" />
+      <File FileName="HelPall/Properties/launchSettings.json" />
+      <File FileName="HelPall/HelPall.csproj" />
+      <File FileName="HelPall/appsettings.json" Line="21" Column="1" />
+      <File FileName="HelPall/.gitignore" Line="41" Column="1" />
+      <File FileName="HelPall/Controllers/PersonsController.cs" Line="96" Column="2" />
+      <File FileName="HelPall/Program.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HelPall" expanded="True">
+            <Node name="HelPall" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.HelPall PreferredExecutionTarget="/Applications/Safari.app" />
+</Properties>

@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Helpall.Services;
 using System;
+using Microsoft.Extensions.Logging;
+
 
 namespace Helpall.Controllers
 {
@@ -13,10 +15,13 @@ namespace Helpall.Controllers
     public class PersonsController : ControllerBase
     {
         private readonly PersonService _personService;
+        ILogger<PersonsController> _logger;
 
-        public PersonsController(PersonService personService)
+        public PersonsController(PersonService personService, ILogger<PersonsController> logger)
         {
             _personService = personService;
+            _logger = logger;
+
         }
 
         [HttpGet]
@@ -26,6 +31,8 @@ namespace Helpall.Controllers
         [HttpGet("{id}", Name = "GetPerson")]
         public ActionResult<Person> Get(Guid id)
         {
+            _logger.LogInformation("Person with Id" + id.ToString() + "is retrieved at ", DateTime.UtcNow);
+
             var book = _personService.Get(id);
 
             if (book == null)
@@ -37,11 +44,23 @@ namespace Helpall.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Person> Create(Person book)
+        public ActionResult<Person> Create(Person person)
         {
-            _personService.Create(book);
 
-            return CreatedAtRoute("GetPerson", new { id = book.Id.ToString() }, book);
+            try
+            {
+                _logger.LogInformation("Person with Id" + person.Id.ToString() + "is created at ", DateTime.UtcNow);
+
+                _personService.Create(person);
+
+                return CreatedAtRoute("GetPerson", new { id = person.Id.ToString() }, person);
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unknown error occurred on the Create Person action of the Persons");
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut("{id}")]

@@ -37,4 +37,5 @@ msbuild.wrn
 
 HelPall/HelPall.csproj
 HelPall/bin/Debug/netcoreapp3.1/
-Helpall/obj/
+HelPall/obj/*
+HelPall/bin/*

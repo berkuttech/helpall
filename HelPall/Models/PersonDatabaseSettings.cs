@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Helpall.Models
+namespace HelPall.Models
 {
     public class PersonDatabaseSettings : IPersonDatabaseSettings
     {

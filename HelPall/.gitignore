@@ -40,3 +40,11 @@ HelPall/HelPall.csproj
 HelPall/bin/Debug/netcoreapp3.1/
 HelPall/obj/*
 HelPall/bin/*
+
+
+*.suo
+*.user
+_ReSharper.*
+bin
+obj
+packages

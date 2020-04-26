@@ -1,26 +1,31 @@
 ﻿
-using Helpall.Models;
-using Helpall;
+using HelPall.Models;
+using HelPall;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using Helpall.Services;
+using HelPall.Services;
 using System;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Localization;
+using System.Resources;
 
-
-namespace Helpall.Controllers
+namespace HelPall.Controllers
 {
     [Route("/api/[controller]")]
     [ApiController]
     public class PersonsController : ControllerBase
     {
         private readonly PersonService _personService;
-        ILogger<PersonsController> _logger;
+        private readonly ILogger<PersonsController> _logger;
+        private readonly IStringLocalizer<PersonsController> _localizer;
+        //private readonly ResourceManager _resourceManager;
 
-        public PersonsController(PersonService personService, ILogger<PersonsController> logger)
+        public PersonsController(PersonService personService, ILogger<PersonsController> logger, IStringLocalizer<PersonsController> localizer)
         {
             _personService = personService;
             _logger = logger;
+            _localizer = localizer;
+            //_resourceManager = resourceManager;
 
         }
 
@@ -33,14 +38,17 @@ namespace Helpall.Controllers
         {
             _logger.LogInformation("Person with Id" + id.ToString() + "is retrieved at ", DateTime.UtcNow);
 
-            var book = _personService.Get(id);
+            var person = _personService.Get(id);
 
-            if (book == null)
+            if (person == null)
             {
-                return NotFound();
+
+                //var resourceManager = HttpContext.RequestServices.GetService(typeof(ResourceManager)) as ResourceManager;
+                _logger.LogError(nameof(Get) + " PersonNotFound " + id);
+                return new NotFoundObjectResult(_localizer["PersonNotFound", id].Value);
             }
 
-            return book;
+            return Ok(person);
         }
 
         [HttpPost]

@@ -1,35 +1,35 @@
 ﻿<Properties StartupConfiguration="{D2085A96-5BBE-42E7-9040-5F31BCA73383}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="HelPall/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HelPall/Resources/Controllers/PersonsController.en-UK.resx">
     <Files>
       <File FileName="HelPall/Controllers/WeatherForecastController.cs" Line="1" Column="1" />
       <File FileName="HelPall/WeatherForecast.cs" />
-      <File FileName="HelPall/Startup.cs" Line="88" Column="39" />
+      <File FileName="HelPall/Startup.cs" />
       <File FileName="HelPall/appsettings.Development.json" />
-      <File FileName="HelPall/Services/PersonService.cs" Line="19" Column="10" />
+      <File FileName="HelPall/Services/PersonService.cs" Line="22" Column="1" />
       <File FileName="HelPall/Properties/launchSettings.json" />
       <File FileName="HelPall/HelPall.csproj" />
-      <File FileName="HelPall/appsettings.json" Line="21" Column="1" />
-      <File FileName="HelPall/.gitignore" Line="41" Column="1" />
-      <File FileName="HelPall/Controllers/PersonsController.cs" Line="96" Column="2" />
-      <File FileName="HelPall/Program.cs" Line="1" Column="1" />
+      <File FileName="HelPall/appsettings.json" />
+      <File FileName="HelPall/.gitignore" Line="50" Column="9" />
+      <File FileName="HelPall/Controllers/PersonsController.cs" />
+      <File FileName="HelPall/Program.cs" />
+      <File FileName="HelPall/Models/Person.cs" />
+      <File FileName="HelPall/Resources/Controllers/PersonsController.en-UK.resx" Line="9" Column="12" />
+      <File FileName="HelPall/Resources/Controllers/PersonsController.en-UK.Designer.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="HelPall" expanded="True">
             <Node name="HelPall" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True" />
+              <Node name="Resources" expanded="True">
+                <Node name="Controllers" expanded="True">
+                  <Node name="PersonsController.en-UK.resx" expanded="True" selected="True" />
+                </Node>
               </Node>
-              <Node name="Controllers" expanded="True" />
               <Node name="appsettings.json" expanded="True" />
-              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

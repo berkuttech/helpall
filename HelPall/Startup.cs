@@ -1,14 +1,17 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Resources;
 using System.Threading.Tasks;
-using Helpall.Models;
-using Helpall.Services;
+using HelPall.Models;
+using HelPall.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,12 +34,15 @@ namespace HelPall
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
 
             services.AddControllers();
 
             // requires using Microsoft.Extensions.Options
             services.Configure<PersonDatabaseSettings>(
                 Configuration.GetSection(nameof(PersonDatabaseSettings)));
+
+            // services.AddSingleton(new ResourceManager("HelpallAPI.Resources.Controllers.PersonsController", typeof(Startup).GetTypeInfo().Assembly));
 
             services.AddSingleton<IPersonDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<PersonDatabaseSettings>>().Value);
@@ -101,6 +107,22 @@ namespace HelPall
                 c.RoutePrefix = string.Empty;
 
             });
+            var supportedCultures = new[] {
+                new CultureInfo("en-UK"),
+                new CultureInfo("en-US"),
+                new CultureInfo("tr")
+            };
+
+            var requestLocalizationOptions = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("en-UK"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            };
+
+            app.UseRequestLocalization(requestLocalizationOptions);
+
+            //app.UseMiddleware<RequestCorrelationMiddleware>();
 
             app.UseRouting();
 

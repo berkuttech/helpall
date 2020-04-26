@@ -2,7 +2,7 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Helpall.Models
+namespace HelPall.Models
 {
     public class Person
     {

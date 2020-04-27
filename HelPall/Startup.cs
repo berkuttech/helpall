@@ -35,45 +35,7 @@ namespace HelPall
         public void ConfigureServices(IServiceCollection services)
         {
 
-
-            // Register cultures here
-            //services.Configure<RequestLocalizationOptions>(
-            //    opts =>
-            //    {
-            //        var supportedCultures = new List<CultureInfo>
-            //        {
-            //            new CultureInfo("en-UK"),
-            //            new CultureInfo("en-US"),
-            //            new CultureInfo("tr"),
-            //        };
-
-            //        opts.DefaultRequestCulture = new RequestCulture("en-UK");
-            //        opts.SupportedCultures = supportedCultures;
-            //        opts.SupportedUICultures = supportedCultures;
-            //    });
-
-
-            //services.Configure<RequestLocalizationOptions>(options =>
-            //{
-            //    var supportedCultures = new[]
-            //    {
-            //        new CultureInfo("en-UK"),
-            //        new CultureInfo("tr")
-            //     };
-
-            //    options.DefaultRequestCulture = new RequestCulture(culture: "en-UK", uiCulture: "en-UK");
-            //    options.SupportedCultures = supportedCultures;
-            //    options.SupportedUICultures = supportedCultures;
-
-            //    options.AddInitialRequestCultureProvider(new CustomRequestCultureProvider(async context =>
-            //    {
-            //        // My custom request culture logic
-            //        return new ProviderCultureResult("en-UK");
-            //    }));
-            //});
-
             services.AddLocalization(opts => opts.ResourcesPath = "Resources");
-
 
             services.AddControllers();
 
@@ -165,7 +127,6 @@ namespace HelPall
                 c.RoutePrefix = string.Empty;
 
             });
-
 
             //app.UseMiddleware<RequestCorrelationMiddleware>();
 

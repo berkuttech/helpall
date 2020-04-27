@@ -43,11 +43,8 @@ namespace HelPall.Controllers
 
             if (person == null)
             {
-
-                //var resourceManager = HttpContext.RequestServices.GetService(typeof(ResourceManager)) as ResourceManager;
-                _logger.LogError(nameof(Get) + _localizer["Person_NotFound"] + id);
-                return new NotFoundObjectResult(_localizerShared["ProjectName"].Value);
-                //return new NotFoundObjectResult(_localizer["Person_NotFound"].Value);
+                _logger.LogError(nameof(Get) + _localizer["PersonNotFound"] + id);
+                return new NotFoundObjectResult(String.Format(_localizer["PersonNotFound"].Value, id));
 
             }
 

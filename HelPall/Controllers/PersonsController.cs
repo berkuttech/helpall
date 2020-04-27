@@ -1,13 +1,12 @@
 ﻿
 using HelPall.Models;
-using HelPall;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using HelPall.Services;
 using System;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Localization;
-using System.Resources;
+
 
 namespace HelPall.Controllers
 {
@@ -18,14 +17,16 @@ namespace HelPall.Controllers
         private readonly PersonService _personService;
         private readonly ILogger<PersonsController> _logger;
         private readonly IStringLocalizer<PersonsController> _localizer;
+        private readonly IStringLocalizer<SharedResource> _localizerShared;
+
         //private readonly ResourceManager _resourceManager;
 
-        public PersonsController(PersonService personService, ILogger<PersonsController> logger, IStringLocalizer<PersonsController> localizer)
+        public PersonsController(PersonService personService, ILogger<PersonsController> logger, IStringLocalizer<PersonsController> localizer, IStringLocalizer<SharedResource> localizerShared)
         {
             _personService = personService;
             _logger = logger;
             _localizer = localizer;
-            //_resourceManager = resourceManager;
+            _localizerShared = localizerShared;
 
         }
 
@@ -44,8 +45,10 @@ namespace HelPall.Controllers
             {
 
                 //var resourceManager = HttpContext.RequestServices.GetService(typeof(ResourceManager)) as ResourceManager;
-                _logger.LogError(nameof(Get) + " PersonNotFound " + id);
-                return new NotFoundObjectResult(_localizer["PersonNotFound", id].Value);
+                _logger.LogError(nameof(Get) + _localizer["Person_NotFound"] + id);
+                return new NotFoundObjectResult(_localizerShared["ProjectName"].Value);
+                //return new NotFoundObjectResult(_localizer["Person_NotFound"].Value);
+
             }
 
             return Ok(person);

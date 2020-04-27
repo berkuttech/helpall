@@ -23,19 +23,6 @@
         <PackageReference Include="Serilog.Enrichers.Environment" Version="2.1.3" />
         <PackageReference Include="Serilog.Sinks.Debug" Version="1.0.1" />
         <PackageReference Include="Serilog.Sinks.ElasticSearch" Version="8.0.1" />
-    </ItemGroup>
-    <ItemGroup>
-      <Compile Update="Resources\Controllers\PersonsController.en-UK.Designer.cs">
-        <DependentUpon>PersonsController.en-UK.resx</DependentUpon>
-      </Compile>
-      <Compile Update="Resources\Controllers\PersonsController.en-UK.Designer.cs">
-        <DependentUpon>PersonsController.en-UK.resx</DependentUpon>
-      </Compile>
-    </ItemGroup>
-    <ItemGroup>
-      <EmbeddedResource Update="Resources\Controllers\PersonsController.en-UK.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>PersonsController.en-UK.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="2.2.0" />
     </ItemGroup>
 </Project>

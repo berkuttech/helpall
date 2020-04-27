@@ -35,6 +35,7 @@ msbuild.err
 msbuild.wrn
 
 .vs/
+.vs/HelPall
 
 HelPall/HelPall.csproj
 HelPall/bin/Debug/netcoreapp3.1/

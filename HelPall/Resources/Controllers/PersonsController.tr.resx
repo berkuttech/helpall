@@ -1,16 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
     <data name="PersonNotFound" xml:space="preserve">
-    <value>Person is not found with specified id</value>
+    <value>Kişi bulunamadı</value>
   </data>
     <!-- single line comment -->
     <data name="Person_Exists" xml:space="preserve">
-    <value>Person exits on the system </value>
+    <value>Kullanıcı zaten sistemde bulunmaktadır</value>
   </data>
     <!-- multi
   line
   comment -->
     <data name="Person_Error" xml:space="preserve">
-    <value>Operation can not be done due to an error</value>
+    <value>Bir hata ile karşılaşıldı. Lütfen daha sonra tekrar deneyiniz</value>
   </data>
 </root>

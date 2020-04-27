@@ -34,7 +34,46 @@ namespace HelPall
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+
+            // Register cultures here
+            //services.Configure<RequestLocalizationOptions>(
+            //    opts =>
+            //    {
+            //        var supportedCultures = new List<CultureInfo>
+            //        {
+            //            new CultureInfo("en-UK"),
+            //            new CultureInfo("en-US"),
+            //            new CultureInfo("tr"),
+            //        };
+
+            //        opts.DefaultRequestCulture = new RequestCulture("en-UK");
+            //        opts.SupportedCultures = supportedCultures;
+            //        opts.SupportedUICultures = supportedCultures;
+            //    });
+
+
+            //services.Configure<RequestLocalizationOptions>(options =>
+            //{
+            //    var supportedCultures = new[]
+            //    {
+            //        new CultureInfo("en-UK"),
+            //        new CultureInfo("tr")
+            //     };
+
+            //    options.DefaultRequestCulture = new RequestCulture(culture: "en-UK", uiCulture: "en-UK");
+            //    options.SupportedCultures = supportedCultures;
+            //    options.SupportedUICultures = supportedCultures;
+
+            //    options.AddInitialRequestCultureProvider(new CustomRequestCultureProvider(async context =>
+            //    {
+            //        // My custom request culture logic
+            //        return new ProviderCultureResult("en-UK");
+            //    }));
+            //});
+
+            services.AddLocalization(opts => opts.ResourcesPath = "Resources");
+
 
             services.AddControllers();
 
@@ -89,10 +128,29 @@ namespace HelPall
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+
+            var supportedCultures = new[] {
+                new CultureInfo("en-UK"),
+                new CultureInfo("en-US"),
+                new CultureInfo("tr")
+            };
+
+            var requestLocalizationOptions = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("en-UK"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            };
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseRequestLocalization(requestLocalizationOptions);
+            // app.UseRequestLocalization(app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>().Value);
+
 
             app.UseHttpsRedirection();
 
@@ -107,20 +165,7 @@ namespace HelPall
                 c.RoutePrefix = string.Empty;
 
             });
-            var supportedCultures = new[] {
-                new CultureInfo("en-UK"),
-                new CultureInfo("en-US"),
-                new CultureInfo("tr")
-            };
 
-            var requestLocalizationOptions = new RequestLocalizationOptions
-            {
-                DefaultRequestCulture = new RequestCulture("en-UK"),
-                SupportedCultures = supportedCultures,
-                SupportedUICultures = supportedCultures
-            };
-
-            app.UseRequestLocalization(requestLocalizationOptions);
 
             //app.UseMiddleware<RequestCorrelationMiddleware>();
 

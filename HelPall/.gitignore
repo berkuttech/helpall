@@ -36,6 +36,9 @@ msbuild.wrn
 
 .vs/
 .vs/HelPall
+.vs/HelPall/xs/UserPrefs.xml
+.vs/HelPall/xs/project-cache/HelPall-Debug.json
+
 
 HelPall/HelPall.csproj
 HelPall/bin/Debug/netcoreapp3.1/
